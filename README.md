@@ -1,54 +1,33 @@
 # Siftahçı Kulüpler
 
-Futbolculara ilk golünü **yediren** kulüplerin sıralaması. Bir oyuncunun bir kategorideki ilk golü bir kez
-atılır ve hiç değişmez; o golü yiyen kulüp siftahçıdır.
+Futbolculara siftah yaptıran kulüpler. Bir oyuncu bir kategorideki ilk golünü bir kez atar ve bu hiç
+değişmez; o ilk golü attıran kulüp siftahçıdır. Bu proje, hangi kulüplerin en çok oyuncuya siftah
+yaptırdığını inceliyor.
 
+## Ne inceleniyor
 Kapsam: Premier League, Serie A, LaLiga, Bundesliga, Ligue 1, Liga Portugal, Pro League, Eredivisie ve
-Süper Lig kulüpleri, 2012/13 – 2025/26.
+Süper Lig kulüpleri, 2012/13 – 2025/26. Sadece lig maçları ile Şampiyonlar Ligi, Avrupa Ligi ve Konferans
+Ligi maçları (elemeler dahil) sayılır; yerel kupalar sayılmaz.
 
-## Veri kaynağı
-Tüm maç ve gol verisi [Transfermarkt](https://www.transfermarkt.com) kaynaklı olup David Cariboo'nun açık
-veri projesi [**transfermarkt-datasets**](https://github.com/dcaribou/transfermarkt-datasets) üzerinden
-alınmıştır ([Kaggle](https://www.kaggle.com/datasets/davidcariboo/player-scores)). Veri seti
-[CC0-1.0](https://github.com/dcaribou/transfermarkt-datasets/blob/master/LICENSE) lisanslıdır ve Temmuz 2026'ya
-kadar günceldir. Bu proje Transfermarkt ile bağlantılı değildir.
-
-## Kategoriler
-- Kariyerdeki ilk gol (lig + Şampiyonlar Ligi / Avrupa Ligi / Konferans Ligi maçları)
+Kategoriler:
+- Kariyerdeki ilk gol
 - Ligdeki ilk gol
-- Avrupa kupalarındaki ilk gol (ŞL, AL, KL ve elemeleri)
-- Şampiyonlar Ligi / Avrupa Ligi / Konferans Ligi'ndeki ilk gol
+- Avrupa kupalarındaki ilk gol
+- Şampiyonlar Ligi, Avrupa Ligi ve Konferans Ligi'ndeki ilk gol
 - Sezondaki ilk gol
 - Toplam: seçilen kategorilerin toplamı
 
-Ölçüler: siftah sayısı, maç başına siftah, ilk gol oranı (siftah ÷ yenen gol), ortalama siftah yaşı.
-Sekmeler: Sıralama, Kulüp, Rekorlar (en yaşlı/genç siftah, en geç/erken dakika, bir sezonda/maçta en çok siftah), Tablo.
+Her kulüp için siftah sayısı, maç başına siftah, ilk gol oranı (siftahların yenen gollere oranı) ve
+siftah yapan oyuncuların ortalama yaşı hesaplanır. Rekorlar bölümünde en yaşlı ve en genç siftahlar, en
+geç ve en erken dakikada gelen siftahlar, bir sezonda ve bir maçta en çok siftah yaptıran kulüpler yer alır.
 
-## Çalıştırma
-İşlenmiş veri (`data/processed/`) depoda hazır geliyor:
-```
-pip install -r requirements.txt
-streamlit run app.py
-```
+Bir golün gerçekten oyuncunun ilk golü olduğundan emin olunamıyorsa o gol sayılmaz. Örneğin 2012/13'te
+zaten oynayan, başka bir ligden gelen ya da araya kiralık dönemi giren oyuncular hesaba katılmaz.
+Kendi kalesine goller de sayılmaz.
 
-Veriyi baştan üretmek için [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets)
-CSV'lerini (ZIP) indirip `data/raw/` içine açın, sonra:
-```
-python src/build_data.py
-```
-
-## Kurallar
-- Sadece lig maçları ve ŞL / AL / KL (elemeler dahil) sayılır. Yerel kupalar ve süper kupalar sayılmaz.
-- Kendi kalesine goller sayılmaz.
-- Siftahçı kulüp, golü yediği sezonda 9 ligden birinde oynuyor olmalı. Oyuncunun ilk golü başka bir ligde
-  atıldıysa (ör. önce Rusya'da gol atıp sonra Süper Lig'e gelen oyuncu) sonraki golü siftah sayılmaz.
-- Emin olunmayan ilk goller sayılmaz:
-  - turnuvanın veride başladığı sezonda (çoğunlukla 2012/13) zaten oynayanlar,
-  - kariyer / lig: veride ilk kez 21 yaşından büyük görünenler, doğum tarihi bilinmeyenler ve ilk golünden
-    önce 200 günden uzun süre veriden kaybolanlar,
-  - Avrupa: Temmuz 2012'de 20 yaşından büyük olanlar.
-
-Eşikler `src/build_data.py` içinde (`MAX_DEBUT_AGE`, `MAX_AGE_AT_START`, `MAX_GAP_DAYS`).
-
-## Sınırlar
-Veride alt ligler yok; alt ligde atılan goller görünmez. Dakikalarda uzatma süresi ayrılmaz (90+3 → 90).
+## Veri kaynağı
+Tüm maç ve gol verisi [Transfermarkt](https://www.transfermarkt.com) kaynaklıdır ve David Cariboo'nun açık
+veri projesi [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets) üzerinden
+alınmıştır ([Kaggle](https://www.kaggle.com/datasets/davidcariboo/player-scores)). Veri seti
+[CC0-1.0](https://github.com/dcaribou/transfermarkt-datasets/blob/master/LICENSE) lisanslıdır ve Temmuz 2026'ya
+kadar günceldir. Bu proje Transfermarkt ile bağlantılı değildir.

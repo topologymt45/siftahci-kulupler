@@ -1,7 +1,7 @@
 """Siftahçı Kulüpler - veri hazırlama.
 
 data/raw/ içindeki transfermarkt-datasets CSV'lerinden şu dosyaları üretir:
-  data/processed/firsts.parquet   -> her (kategori, varyant, oyuncu[, sezon]) için ilk gol ve golü YİYEN takım
+  data/processed/firsts.parquet   -> her (kategori, varyant, oyuncu[, sezon]) için ilk gol ve golü YİYEN (siftah yaptıran) takım
   data/processed/denoms.parquet   -> kulüp başına maç sayısı ve yenen gol sayısı (oranlar için)
   data/processed/clubs.parquet    -> kulüp adı ve ülkesi
 

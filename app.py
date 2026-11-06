@@ -1,4 +1,4 @@
-"""Siftahçı Kulüpler - futbolculara ilk golünü yediren Avrupa kulüpleri.
+"""Siftahçı Kulüpler - futbolculara siftah yaptıran kulüpler.
 
 Çalıştırma:  streamlit run app.py
 """
@@ -176,8 +176,9 @@ seasons_all = sorted(firsts.season.unique())
 
 st.title("Siftahçı Kulüpler")
 st.markdown(
-    "<p class='lede'>Futbolculara ilk golünü yediren kulüpler: Premier League, Serie A, LaLiga, Bundesliga, Ligue 1, Liga Portugal, Pro League, Eredivisie ve Süper Lig. Bir oyuncunun bir kategorideki "
-    "ilk golü bir kez atılır ve hiç değişmez; o golü yiyen kulüp siftahçıdır.</p>"
+    "<p class='lede'>Futbolculara siftah yaptıran kulüpler. Bir oyuncu bir kategorideki ilk golünü bir kez atar ve bu "
+    "hiç değişmez; o ilk golü attıran kulüp siftahçıdır. Kapsam: Premier League, Serie A, LaLiga, Bundesliga, Ligue 1, "
+    "Liga Portugal, Pro League, Eredivisie ve Süper Lig.</p>"
     "<p class='note'>Veri: <a href='https://www.transfermarkt.com'>Transfermarkt</a>, "
     "<a href='https://github.com/dcaribou/transfermarkt-datasets'>transfermarkt-datasets</a> (CC0) aracılığıyla.</p>",
     unsafe_allow_html=True)
@@ -399,7 +400,7 @@ st.divider()
 with st.expander("Yöntem ve veri"):
     st.markdown("""
 **Siftah.** Bir oyuncunun seçili kategorideki ilk golü. Sezona değil kariyere bakılır; örneğin
-Şampiyonlar Ligi'ndeki ilk gol, oyuncunun kariyerinde bu turnuvada attığı ilk goldür. Gol, golü **yiyen** kulübe yazılır.
+Şampiyonlar Ligi'ndeki ilk gol, oyuncunun kariyerinde bu turnuvada attığı ilk goldür. Siftah, oyuncuya bu ilk golü attıran kulübe yazılır.
 "Sezon" kategorisi istisnadır: orada her oyuncunun her sezon attığı ilk gol sayılır.
 
 **Sayılan maçlar.** Sadece lig maçları ve Şampiyonlar Ligi, Avrupa Ligi, Konferans Ligi (elemeler dahil). Yerel kupalar,
