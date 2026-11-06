@@ -6,6 +6,13 @@ atılır ve hiç değişmez; o golü yiyen kulüp siftahçıdır.
 Kapsam: Premier League, Serie A, LaLiga, Bundesliga, Ligue 1, Liga Portugal, Pro League, Eredivisie ve
 Süper Lig kulüpleri, 2012/13 – 2025/26.
 
+## Veri kaynağı
+Tüm maç ve gol verisi [Transfermarkt](https://www.transfermarkt.com) kaynaklı olup David Cariboo'nun açık
+veri projesi [**transfermarkt-datasets**](https://github.com/dcaribou/transfermarkt-datasets) üzerinden
+alınmıştır ([Kaggle](https://www.kaggle.com/datasets/davidcariboo/player-scores)). Veri seti
+[CC0-1.0](https://github.com/dcaribou/transfermarkt-datasets/blob/master/LICENSE) lisanslıdır ve Temmuz 2026'ya
+kadar günceldir. Bu proje Transfermarkt ile bağlantılı değildir.
+
 ## Kategoriler
 - Kariyerdeki ilk gol (lig + Şampiyonlar Ligi / Avrupa Ligi / Konferans Ligi maçları)
 - Ligdeki ilk gol
@@ -45,6 +52,3 @@ Eşikler `src/build_data.py` içinde (`MAX_DEBUT_AGE`, `MAX_AGE_AT_START`, `MAX_
 
 ## Sınırlar
 Veride alt ligler yok; alt ligde atılan goller görünmez. Dakikalarda uzatma süresi ayrılmaz (90+3 → 90).
-
-## Veri ve lisans
-Veri: [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets) (CC0-1.0), Temmuz 2026'ya kadar.

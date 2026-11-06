@@ -61,7 +61,9 @@ st.markdown("""
 <style>
   .block-container {padding-top: 2.5rem; max-width: 1180px;}
   h1 {letter-spacing: -0.02em; margin-bottom: 0 !important;}
-  .lede {color: #5f5e5a; margin: 0.25rem 0 1.75rem; max-width: 68ch;}
+  .lede {color: #5f5e5a; margin: 0.25rem 0 0.25rem; max-width: 68ch;}
+  .lede + .note {margin-bottom: 1.5rem;}
+  .note a {color: inherit;}
   .summary {font-variant-numeric: tabular-nums; color: #5f5e5a; margin: 0.5rem 0 0.25rem;}
   .summary b {color: #1a1a19; font-weight: 600;}
   .stTabs [data-baseweb="tab-list"] {gap: 1.5rem;}
@@ -175,7 +177,9 @@ seasons_all = sorted(firsts.season.unique())
 st.title("Siftahçı Kulüpler")
 st.markdown(
     "<p class='lede'>Futbolculara ilk golünü yediren kulüpler: Premier League, Serie A, LaLiga, Bundesliga, Ligue 1, Liga Portugal, Pro League, Eredivisie ve Süper Lig. Bir oyuncunun bir kategorideki "
-    "ilk golü bir kez atılır ve hiç değişmez; o golü yiyen kulüp siftahçıdır.</p>",
+    "ilk golü bir kez atılır ve hiç değişmez; o golü yiyen kulüp siftahçıdır.</p>"
+    "<p class='note'>Veri: <a href='https://www.transfermarkt.com'>Transfermarkt</a>, "
+    "<a href='https://github.com/dcaribou/transfermarkt-datasets'>transfermarkt-datasets</a> (CC0) aracılığıyla.</p>",
     unsafe_allow_html=True)
 
 options = list(CATEGORIES) + [TOTAL]
@@ -415,7 +419,7 @@ Süper Lig'deki ilk golü siftah sayılmaz.
   bilinmeyenler ve ilk golünden önce 200 günden uzun süre veriden kaybolanlar (kiralık gitmiş olabilirler).
 - Avrupa kategorileri: Temmuz 2012'de 20 yaşından büyük olanlar (2012'den önce Avrupa'da gol atmış olabilirler).
 
-**Veri.** [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets) (CC0), 2012/13'ten Temmuz 2026'ya kadar.
+**Veri kaynağı.** Maç ve gol verisi [Transfermarkt](https://www.transfermarkt.com) kaynaklıdır; David Cariboo'nun [transfermarkt-datasets](https://github.com/dcaribou/transfermarkt-datasets) projesi üzerinden alınmıştır (CC0-1.0), 2012/13'ten Temmuz 2026'ya kadar. Bu proje Transfermarkt ile bağlantılı değildir.
 
 **Sınır.** Veride olmayan alt liglerde atılan goller görünmez. Örneğin İrfan Can Kahveci'nin 3. Lig ve Türkiye Kupası golleri
 veride yok, bu yüzden kariyer siftahı 2014'teki Süper Lig golü (Kasımpaşa) olarak görünür. Dakikalarda uzatma süresi
